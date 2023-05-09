@@ -2,16 +2,16 @@ namespace FirstRPG;
 
 public class Imperial : Race
 {
-    private int _raceStr = 0;
-    private int _raceDex = 1;
-    private int _raceInt = 2;
+    private int _str = 0;
+    private int _dex = 1;
+    private int _intel = 2;
 
-    public Imperial(int str, int dex, int intel)
+    public Imperial()
     {
         Console.WriteLine("Imperial!");
         
-        _raceStr = str;
-        _raceDex = dex;
-        _raceInt = intel;
+        RaceStr = _str;
+        RaceDex = _dex;
+        RaceInt = _intel;
     }
 }

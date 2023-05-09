@@ -2,6 +2,7 @@ namespace FirstRPG;
 
 public class Character
 {
+    protected int _hitPoint;
     private int _charClassStr;
     private int _charClassDex;
     private int _charClassInt;
@@ -12,9 +13,9 @@ public class Character
     private int _dexterity;
     private int _intelligence;
 
-    public Character()
+    public Character(int hitPoint)
     {
-        
+        _hitPoint = hitPoint;
     }
 
     public void Sync()

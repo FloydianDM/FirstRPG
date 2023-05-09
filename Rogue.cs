@@ -2,12 +2,16 @@ namespace FirstRPG;
 
 public class Rogue : Class
 {
-    public Rogue(int str, int dex, int intel)
+    private int _str = 1;
+    private int _dex = 1;
+    private int _intel = 1;
+    
+    public Rogue()
     {
         Console.WriteLine("Rogue!");
-        ClassStr = str;
-        ClassDex = dex;
-        ClassInt = intel;
+        ClassStr = _str;
+        ClassDex = _dex;
+        ClassInt = _intel;
     }
     
 }

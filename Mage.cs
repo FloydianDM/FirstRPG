@@ -2,11 +2,14 @@ namespace FirstRPG;
 
 public class Mage : Class
 {
-    public Mage(int str, int dex, int intel)
+    private int _str = 0;
+    private int _dex = 1;
+    private int _intel = 2;
+    public Mage()
     {
         Console.WriteLine("Mage!");
-        ClassStr = str;
-        ClassDex = dex;
-        ClassInt = intel;
+        ClassStr = _str;
+        ClassDex = _dex;
+        ClassInt = _intel;
     }
 }

@@ -2,17 +2,16 @@ namespace FirstRPG;
 
 public class Black : Race
 {
-    private int _raceStr;
-    private int _raceDex;
-    private int _raceInt;
+    private int _str = 2;
+    private int _dex = 1;
+    private int _intel = 0;
 
-    public Black(int str, int dex, int intel)
+    public Black()
     {
         Console.WriteLine("Black!");
         
-        _raceStr = str;
-        _raceDex = dex;
-        _raceInt = intel;
-
+        RaceStr = _str;
+        RaceDex = _dex;
+        RaceInt = _intel;
     }
 }
