@@ -2,20 +2,26 @@ namespace FirstRPG;
 
 public class Character
 {
-    protected int _hitPoint;
+    protected int HitPoint;
+    protected int Gold;
     private int _charClassStr;
     private int _charClassDex;
     private int _charClassInt;
     private int _charRaceStr;
     private int _charRaceDex;
     private int _charRaceInt;
-    private int _strength;
-    private int _dexterity;
-    private int _intelligence;
+    protected int Strength;
+    protected int Dexterity;
+    protected int Intelligence;
 
-    public Character(int hitPoint)
+    public Character()
     {
-        _hitPoint = hitPoint;
+    }
+    
+    public void SetHitPointGold(int hitPoint, int gold)
+    {
+        HitPoint = hitPoint;
+        Gold = gold;
     }
 
     public void Sync()
@@ -34,9 +40,8 @@ public class Character
 
     public void TotalSpecs()
     {
-        _strength = _charClassStr + _charRaceStr;
-        _dexterity = _charClassDex + _charRaceDex;
-        _intelligence = _charClassInt + _charRaceInt;
+        Strength = _charClassStr + _charRaceStr;
+        Dexterity = _charClassDex + _charRaceDex;
+        Intelligence = _charClassInt + _charRaceInt;
     }
-
 }

@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             var input = new Input();
-            input.Difficulty();
+            input.SetDifficulty();
             input.ClassBuild();
             input.RaceBuild();
             input.CharacterBuild();

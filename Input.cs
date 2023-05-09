@@ -3,8 +3,9 @@ namespace FirstRPG;
 public class Input
 { 
     private int _hitPoint;
+    private int _gold;
     
-    public void Difficulty()
+    public void SetDifficulty()
     {
         Console.WriteLine("---Difficulty Setting---");
         Console.WriteLine("Select a difficulty:");
@@ -18,12 +19,15 @@ public class Input
         {
             case 1:
                 _hitPoint = 30;
+                _gold = 50;
                 break;
             case 2:
                 _hitPoint = 25;
+                _gold = 40;
                 break;
             case 3:
                 _hitPoint = 20;
+                _gold = 30;
                 break;
         }
     }
@@ -79,7 +83,8 @@ public class Input
     public void CharacterBuild()
     {
         Console.WriteLine("Character Build is ready!");
-        Character character = new Character(_hitPoint);
+        Character character = new Character();
+        character.SetHitPointGold(_hitPoint, _gold);
         character.Sync();
         character.TotalSpecs();
     }
