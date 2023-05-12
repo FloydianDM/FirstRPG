@@ -1,10 +1,17 @@
 namespace FirstRPG;
 
 public class Input
-{ 
+{
     private int _hitPoint;
     private int _gold;
-    
+    private Barbarian _barbarian;
+    private Rogue _rogue;
+    private Mage _mage;
+    private Imperial _imperial;
+    private Nord _nord;
+    private Black _black;
+    public CharacterActions Character = new CharacterActions();
+
     public void SetDifficulty()
     {
         Console.WriteLine("---Difficulty Setting---");
@@ -44,16 +51,21 @@ public class Input
         switch (classID)
         {
             case 1:
-                Barbarian charClass1 = new Barbarian();
+                var barbarian = new Barbarian();
+                _barbarian = barbarian;
+                Character.BarbarianSync(_barbarian);
                 break;
             case 2:
-                Rogue charClass2 = new Rogue();
+                var rogue = new Rogue();
+                _rogue = rogue;
+                Character.RogueSync(_rogue);
                 break;
             case 3:
-                Mage charClass3 = new Mage();
+                var mage = new Mage();
+                _mage = mage;
+                Character.MageSync(_mage);
                 break;
         }
-
     }
 
     public void RaceBuild()
@@ -69,13 +81,19 @@ public class Input
         switch (raceID)
         {
             case 1:
-                var charRace1 = new Imperial();
+                var imperial = new Imperial();
+                _imperial = imperial;
+                Character.ImperialSync(_imperial);
                 break;
             case 2:
-                var charRace2 = new Nord();
+                var nord = new Nord();
+                _nord = nord;
+                Character.NordSync(_nord);
                 break;
             case 3:
-                var charRace3 = new Black();
+                var black = new Black();
+                _black = black;
+                Character.BlackSync(_black);
                 break;
         }
     }
@@ -83,9 +101,13 @@ public class Input
     public void CharacterBuild()
     {
         Console.WriteLine("Character Build is ready!");
-        Character character = new Character();
-        character.SetHitPointGold(_hitPoint, _gold);
-        character.Sync();
-        character.TotalSpecs();
+        Character.SetHitPointGold(_hitPoint, _gold);
+        Character.TotalSpecs();
+    }
+
+    public void EventTransfer()
+    {
+        Character.SetDrink();
+        Character.SetFight(10);
     }
 }

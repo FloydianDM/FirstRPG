@@ -23,19 +23,47 @@ public class Character
         HitPoint = hitPoint;
         Gold = gold;
     }
-
-    public void Sync()
+    
+    public void BarbarianSync(Barbarian barbarian)
     {
-        var charClass = new Class();
-        var charRace = new Race();
+        _charClassStr = barbarian.ClassStr;
+        _charClassDex = barbarian.ClassDex;
+        _charClassInt = barbarian.ClassInt;
+    }
 
-        _charClassStr = charClass.ClassStr;
-        _charClassDex = charClass.ClassDex;
-        _charClassInt = charClass.ClassInt;
+    public void RogueSync(Rogue rogue)
+    {
+        _charClassStr = rogue.ClassStr;
+        _charClassDex = rogue.ClassDex;
+        _charClassInt = rogue.ClassInt;
+    }
 
-        _charRaceStr = charRace.RaceStr;
-        _charRaceDex = charRace.RaceDex;
-        _charRaceInt = charRace.RaceInt;
+    public void MageSync(Mage mage)
+    {
+        _charClassStr = mage.ClassStr;
+        _charClassDex = mage.ClassDex;
+        _charClassInt = mage.ClassInt;
+    }
+
+    public void ImperialSync(Imperial imperial)
+    {
+        _charRaceStr = imperial.RaceStr;
+        _charRaceDex = imperial.RaceDex;
+        _charRaceInt = imperial.RaceInt;
+    }
+
+    public void NordSync(Nord nord)
+    {
+        _charRaceStr = nord.RaceStr;
+        _charRaceDex = nord.RaceDex;
+        _charRaceInt = nord.RaceInt;
+    }
+
+    public void BlackSync(Black black)
+    {
+        _charRaceStr = black.RaceStr;
+        _charRaceDex = black.RaceDex;
+        _charRaceInt = black.RaceInt;
     }
 
     public void TotalSpecs()

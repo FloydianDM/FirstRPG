@@ -1,14 +1,17 @@
-using System.Net;
-
 namespace FirstRPG;
 
 public class CharacterActions : Character
 {
+    public CharacterActions()
+    {
+        
+    }
+    
     private void CheckHealth()
     {
         if (HitPoint <= 0)
         {
-            Console.WriteLine("Game Over");
+            Console.WriteLine("Game Over!");
             Environment.Exit(0);
         }
     }
@@ -47,20 +50,18 @@ public class CharacterActions : Character
     {
         if (encounterStrength > Strength + 5)
         {
-            CheckHealth();
-            return HitPoint -= 50;
-        }
-        
-        else if (Strength + 5 > encounterStrength && encounterStrength >= Strength)
-        {
-            CheckHealth();
-            return HitPoint -= 5;
+            HitPoint -= 5;
+            Console.WriteLine($"+++Remained HP: {HitPoint}+++");
         }
 
-        else
+        else if (Strength + 5 > Strength && encounterStrength > Strength)
         {
-            CheckHealth();
-            return HitPoint;
+            HitPoint--;
+            Console.WriteLine($"+++Remained HP: {HitPoint}+++");
         }
+        
+        CheckHealth();
+
+        return HitPoint;
     }
 }

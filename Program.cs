@@ -9,6 +9,8 @@
             input.ClassBuild();
             input.RaceBuild();
             input.CharacterBuild();
+            
+            input.EventTransfer();
         }
     }
 }
