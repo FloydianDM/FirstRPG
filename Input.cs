@@ -4,6 +4,7 @@ public class Input
 {
     private int _hitPoint;
     private int _gold;
+    private string _difficulty;
     private Barbarian _barbarian;
     private Rogue _rogue;
     private Mage _mage;
@@ -20,21 +21,24 @@ public class Input
         Console.WriteLine("Press '2' for 'Medium'");
         Console.WriteLine("Press '3' for 'Hard'");
         Console.WriteLine("------------------------");
-        int difficultyID = Convert.ToInt32(Console.ReadLine());
+        int difficultyId = Convert.ToInt32(Console.ReadLine());
 
-        switch (difficultyID)
+        switch (difficultyId)
         {
             case 1:
                 _hitPoint = 30;
                 _gold = 50;
+                _difficulty = "easy";
                 break;
             case 2:
                 _hitPoint = 25;
                 _gold = 40;
+                _difficulty = "medium";
                 break;
             case 3:
                 _hitPoint = 20;
                 _gold = 30;
+                _difficulty = "hard";
                 break;
         }
     }
@@ -46,9 +50,9 @@ public class Input
         Console.WriteLine("press '2' for Rogue");
         Console.WriteLine("press '3' for Mage");
         Console.WriteLine("---------------------");
-        int classID = Convert.ToInt32(Console.ReadLine());
+        int classId = Convert.ToInt32(Console.ReadLine());
         
-        switch (classID)
+        switch (classId)
         {
             case 1:
                 var barbarian = new Barbarian();
@@ -76,9 +80,9 @@ public class Input
         Console.WriteLine("press '2' for Nord");
         Console.WriteLine("press '3' for Black");
         Console.WriteLine("---------------------");
-        int raceID = Convert.ToInt32(Console.ReadLine());
+        int raceId = Convert.ToInt32(Console.ReadLine());
         
-        switch (raceID)
+        switch (raceId)
         {
             case 1:
                 var imperial = new Imperial();
@@ -101,13 +105,7 @@ public class Input
     public void CharacterBuild()
     {
         Console.WriteLine("Character Build is ready!");
-        Character.SetHitPointGold(_hitPoint, _gold);
+        Character.SetHitPointGold(_hitPoint, _gold, _difficulty);
         Character.TotalSpecs();
-    }
-
-    public void EventTransfer()
-    {
-        Character.SetDrink();
-        Character.SetFight(10);
     }
 }

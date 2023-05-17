@@ -4,13 +4,14 @@
     {
         static void Main(string[] args)
         {
-            var input = new Input();
+            var input = new Events();
             input.SetDifficulty();
             input.ClassBuild();
             input.RaceBuild();
             input.CharacterBuild();
             
-            input.EventTransfer();
+            input.Bar1();
+            input.Village1();
         }
     }
 }

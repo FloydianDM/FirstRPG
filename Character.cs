@@ -4,6 +4,7 @@ public class Character
 {
     protected int HitPoint;
     protected int Gold;
+    protected string Difficulty;
     private int _charClassStr;
     private int _charClassDex;
     private int _charClassInt;
@@ -18,10 +19,11 @@ public class Character
     {
     }
     
-    public void SetHitPointGold(int hitPoint, int gold)
+    public void SetHitPointGold(int hitPoint, int gold, string difficulty)
     {
         HitPoint = hitPoint;
         Gold = gold;
+        Difficulty = difficulty;
     }
     
     public void BarbarianSync(Barbarian barbarian)

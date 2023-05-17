@@ -2,8 +2,8 @@ namespace FirstRPG;
 
 public class Black : Race
 {
-    private int _str = 2;
-    private int _dex = 1;
+    private int _str = 20;
+    private int _dex = 10;
     private int _intel = 0;
 
     public Black()

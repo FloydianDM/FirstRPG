@@ -2,9 +2,9 @@ namespace FirstRPG;
 
 public class Rogue : Class
 {
-    private int _str = 1;
-    private int _dex = 1;
-    private int _intel = 1;
+    private int _str = 10;
+    private int _dex = 20;
+    private int _intel = 10;
     
     public Rogue()
     {

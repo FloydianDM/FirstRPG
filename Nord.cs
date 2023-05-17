@@ -2,9 +2,9 @@ namespace FirstRPG;
 
 public class Nord : Race
 {
-    private int _str = 1;
-    private int _dex = 1;
-    private int _intel = 1;
+    private int _str = 15;
+    private int _dex = 5;
+    private int _intel = 10;
 
     public Nord()
     {

@@ -2,9 +2,9 @@ namespace FirstRPG;
 
 public class Mage : Class
 {
-    private int _str = 0;
-    private int _dex = 1;
-    private int _intel = 2;
+    private int _str = 5;
+    private int _dex = 10;
+    private int _intel = 25;
     public Mage()
     {
         Console.WriteLine("Mage!");

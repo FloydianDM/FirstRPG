@@ -2,9 +2,9 @@ namespace FirstRPG;
 
 public class Barbarian : Class
 {
-    private int _str = 2;
-    private int _dex = 1;
-    private int _intel = 0;
+    private int _str = 20;
+    private int _dex = 15;
+    private int _intel = 5;
     public Barbarian()
     {
         Console.WriteLine("Barbarian!");
