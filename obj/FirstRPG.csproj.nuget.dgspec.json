@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/dogacmengul/Projects/Games/FirstRPG/FirstRPG/FirstRPG.csproj": {}
+    "/Users/dogacmengul/Projects/Games/FirstRPG/FirstRPG.csproj": {}
   },
   "projects": {
-    "/Users/dogacmengul/Projects/Games/FirstRPG/FirstRPG/FirstRPG.csproj": {
+    "/Users/dogacmengul/Projects/Games/FirstRPG/FirstRPG.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dogacmengul/Projects/Games/FirstRPG/FirstRPG/FirstRPG.csproj",
+        "projectUniqueName": "/Users/dogacmengul/Projects/Games/FirstRPG/FirstRPG.csproj",
         "projectName": "FirstRPG",
-        "projectPath": "/Users/dogacmengul/Projects/Games/FirstRPG/FirstRPG/FirstRPG.csproj",
+        "projectPath": "/Users/dogacmengul/Projects/Games/FirstRPG/FirstRPG.csproj",
         "packagesPath": "/Users/dogacmengul/.nuget/packages/",
-        "outputPath": "/Users/dogacmengul/Projects/Games/FirstRPG/FirstRPG/obj/",
+        "outputPath": "/Users/dogacmengul/Projects/Games/FirstRPG/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/dogacmengul/.nuget/NuGet/NuGet.Config"
