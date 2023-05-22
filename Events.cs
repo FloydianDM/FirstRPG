@@ -20,7 +20,10 @@ public class Events : Input
         Console.WriteLine("Let's prepare to a hard fight!");
         Random random = new Random();
         int encounterStrength = random.Next(5, 15);
-        Character.SetFight(encounterStrength);
+        int encounterDexterity = random.Next(5, 15);
+        int encounterIntelligence = random.Next(0, 10);
+        int encounterVitality = random.Next(15, 25);
+        Character.SetFight(encounterStrength, encounterDexterity, encounterIntelligence, encounterVitality);
         Console.WriteLine("After this exhausting fight, I need to replenish myself.");
     }
 
