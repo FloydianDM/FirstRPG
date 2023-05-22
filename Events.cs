@@ -4,6 +4,8 @@ namespace FirstRPG;
 
 public class Events : Input
 {
+    private bool _menuCheck = true;
+    
     public Events()
     {
         
@@ -31,20 +33,27 @@ public class Events : Input
     {
         Console.WriteLine("+++++ Chapter 2 +++++");
         Console.WriteLine("+++++ Village of the Freedom +++++");
-        Console.WriteLine("I have limited time, I can replenish my health here or do some exercises.");
-        Console.Write("Do you want to train? (y/n) ");
-        string train = Console.ReadLine();
-
-        switch (train)
+        Console.WriteLine("Let`s buy new items for next adventures.");
+        Character.SetPurchase();
+        while (_menuCheck)
         {
-            case "y" :
-                Character.SetTraining();
-                break;
-            case "n" :
-                Character.SetReplenish();
-                break; ;
-        }
+            Console.WriteLine("I have limited time, I can replenish my health here or do some exercises.");
+            Console.Write("Do you want to train? (y/n) ");
+            string train = Console.ReadLine();
 
+            switch (train)
+            {
+                case "y" :
+                    Character.SetTraining();
+                    _menuCheck = false;
+                    break;
+                case "n" :
+                    Character.SetReplenish();
+                    _menuCheck = false;
+                    break; ;
+            }
+        }
+        
         Console.WriteLine("Let's leave.");
     }
 }

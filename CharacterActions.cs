@@ -23,32 +23,39 @@ public class CharacterActions : Character
     
     public void SetDrink()
     {
-        Console.WriteLine("+++Select a Drink+++");
-        Console.WriteLine("Write '1' for Beer");
-        Console.WriteLine("Write '2' for Wine");
-        Console.WriteLine("Write '3' for Ottoman Sherbet");
-        Console.WriteLine("++++++++++++++++++++");
-        var drinkId = Convert.ToInt32(Console.ReadLine());
-
-        switch (drinkId)
+        bool menuCheck = true;
+        while (menuCheck)
         {
-            case 1:
-                Console.WriteLine("Drinking a glass of tasty, bitter and herbal ale...");
-                Gold --;
-                HitPoint += 5;
-                Console.WriteLine($"Current gold: {Gold} Current HP: {HitPoint}");
-                break;
-            case 2:
-                Console.WriteLine("Drinking a jar of full bodied red wine, feeling like a noble prick...");
-                Gold -= 5;
-                HitPoint += 15;
-                Console.WriteLine($"Current gold: {Gold} Current HP: {HitPoint}");
-                break;
-            case 3:
-                Console.WriteLine("Game over vahhabi köpeği!");
-                HitPoint = 0;
-                Console.WriteLine($"Current gold: {Gold} Current HP: {HitPoint}");
-                break;
+            Console.WriteLine("+++Select a Drink+++");
+            Console.WriteLine("Write '1' for Beer");
+            Console.WriteLine("Write '2' for Wine");
+            Console.WriteLine("Write '3' for Ottoman Sherbet");
+            Console.WriteLine("++++++++++++++++++++");
+            var drinkId = Convert.ToInt32(Console.ReadLine());
+
+            switch (drinkId)
+            {
+                case 1:
+                    Console.WriteLine("Drinking a glass of tasty, bitter and herbal ale...");
+                    Gold --;
+                    HitPoint += 5;
+                    Console.WriteLine($"Current gold: {Gold} Current HP: {HitPoint}");
+                    menuCheck = false;
+                    break;
+                case 2:
+                    Console.WriteLine("Drinking a jar of full bodied red wine, feeling like a noble prick...");
+                    Gold -= 5;
+                    HitPoint += 15;
+                    Console.WriteLine($"Current gold: {Gold} Current HP: {HitPoint}");
+                    menuCheck = false;
+                    break;
+                case 3:
+                    Console.WriteLine("Game over vahhabi köpeği!");
+                    HitPoint = 0;
+                    Console.WriteLine($"Current gold: {Gold} Current HP: {HitPoint}");
+                    menuCheck = false;
+                    break;
+            }
         }
         
         Console.WriteLine("Current character stats: ");
@@ -57,171 +64,189 @@ public class CharacterActions : Character
         CheckHealth();
     }
 
-    public int SetFight (int encounterStrength, int encounterDexterity, int encounterIntelligence, int encounterVitality)
+    public void SetFight (int encounterStrength, int encounterDexterity, int encounterIntelligence, int encounterVitality)
     {
-        Console.WriteLine($"Fight is started! Encounter Strength: {encounterStrength} Encounter Dexterity: {encounterDexterity} Encounter HitPoint: {encounterVitality}");
-        Console.WriteLine("Select a fight method: ");
-        Console.WriteLine("Press '1' for close combat (Strength based)");
-        Console.WriteLine("Press '2' for archery (Dexterity based)");
-        Console.WriteLine("Press '3' for using magic (Intelligence based)");
-        Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++");
-        int fightId = Convert.ToInt32(Console.ReadLine());
-        var random = new Random();
-        
-        switch (fightId)
-        { 
-            case 1 :
-                while (encounterVitality > 0 && HitPoint > 0)
-                {
-                    if (encounterStrength > Strength + 5)
+        bool menuCheck = true;
+        while (menuCheck)
+        {
+            Console.WriteLine($"Fight is started! Encounter Strength: {encounterStrength} Encounter Dexterity: {encounterDexterity} Encounter HitPoint: {encounterVitality}");
+            Console.WriteLine("Select a fight method: ");
+            Console.WriteLine("Press '1' for close combat (Strength based)");
+            Console.WriteLine("Press '2' for archery (Dexterity based)");
+            Console.WriteLine("Press '3' for using magic (Intelligence based)");
+            Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++");
+            int fightId = Convert.ToInt32(Console.ReadLine());
+            var random = new Random();
+
+            switch (fightId)
+            {
+                case 1:
+                    while (encounterVitality > 0 && HitPoint > 0)
                     {
-                        int encounterDamage = 2 * (encounterDexterity + encounterStrength * random.Next(1, 2));
-                        HitPoint -= encounterDamage;
+                        if (encounterStrength > Strength + 5)
+                        {
+                            int encounterDamage = 2 * (encounterDexterity + encounterStrength * random.Next(1, 2));
+                            HitPoint -= encounterDamage;
 
-                        int characterDamage = Dexterity + Strength * random.Next(2, 4);
-                        encounterVitality -= characterDamage;
+                            int characterDamage = Dexterity + Strength * random.Next(2, 4);
+                            encounterVitality -= characterDamage;
 
-                        Console.WriteLine($"HP: {HitPoint} / Encounter HP: {encounterVitality}");
+                            Console.WriteLine($"HP: {HitPoint} / Encounter HP: {encounterVitality}");
+                        }
+
+                        else if (Strength + 5 > encounterStrength && encounterStrength > Strength)
+                        {
+                            int encounterDamage = encounterDexterity + encounterStrength * random.Next(1, 3);
+                            HitPoint -= encounterDamage;
+
+                            int characterDamage = Dexterity + Strength * random.Next(2, 5);
+                            encounterVitality -= characterDamage;
+
+                            Console.WriteLine($"HP: {HitPoint} / Encounter HP: {encounterVitality}");
+                        }
+
+                        else
+                        {
+                            int encounterDamage = encounterStrength * random.Next(1, 2);
+                            HitPoint -= encounterDamage;
+
+                            int characterDamage = 2 * (Dexterity + Strength * random.Next(1, 2));
+                            encounterVitality -= characterDamage;
+
+                            Console.WriteLine($"HP: {HitPoint} / Encounter HP: {encounterVitality}");
+                        }
                     }
 
-                    else if (Strength + 5 > encounterStrength && encounterStrength > Strength)
+                    CheckHealth();
+                    menuCheck = false;
+                    break;
+                case 2:
+                    while (encounterVitality > 0 && HitPoint > 0)
                     {
-                        int encounterDamage = encounterDexterity + encounterStrength * random.Next(1, 3);
-                        HitPoint -= encounterDamage;
+                        if (encounterDexterity > Dexterity + 5)
+                        {
+                            int encounterDamage = 2 * (encounterStrength + encounterDexterity * random.Next(1, 2));
+                            HitPoint -= encounterDamage;
 
-                        int characterDamage = Dexterity + Strength * random.Next(2, 5);
-                        encounterVitality -= characterDamage;
-                        
-                        Console.WriteLine($"HP: {HitPoint} / Encounter HP: {encounterVitality}");
+                            int characterDamage = Strength + Dexterity * random.Next(2, 4);
+                            encounterVitality -= characterDamage;
+
+                            Console.WriteLine($"HP: {HitPoint} / Encounter HP: {encounterVitality}");
+                        }
+
+                        else if (Dexterity + 5 > encounterDexterity && encounterDexterity > Dexterity)
+                        {
+                            int encounterDamage = encounterStrength + encounterDexterity * random.Next(1, 3);
+                            HitPoint -= encounterDamage;
+
+                            int characterDamage = Strength + Dexterity * random.Next(2, 5);
+                            encounterVitality -= characterDamage;
+
+                            Console.WriteLine($"HP: {HitPoint} / Encounter HP: {encounterVitality}");
+                        }
+
+                        else
+                        {
+                            int encounterDamage = encounterDexterity * random.Next(1, 2);
+                            HitPoint -= encounterDamage;
+
+                            int characterDamage = 2 * (Strength + Dexterity * random.Next(1, 2));
+                            encounterVitality -= characterDamage;
+
+                            Console.WriteLine($"HP: {HitPoint} / Encounter HP: {encounterVitality}");
+                        }
                     }
 
-                    else
+                    CheckHealth();
+                    menuCheck = false;
+                    break;
+                case 3:
+                    while (encounterVitality > 0 && HitPoint > 0)
                     {
-                        int encounterDamage = encounterStrength * random.Next(1, 2);
-                        HitPoint -= encounterDamage;
+                        if ((2 * encounterIntelligence + encounterDexterity) > (2 * Intelligence + Dexterity) + 5)
+                        {
+                            int encounterDamage = 2 * (encounterDexterity + encounterIntelligence * random.Next(1, 2));
+                            HitPoint -= encounterDamage;
 
-                        int characterDamage = 2 * (Dexterity + Strength * random.Next(1, 2));
-                        encounterVitality -= characterDamage;
-                        
-                        Console.WriteLine($"HP: {HitPoint} / Encounter HP: {encounterVitality}");
-                    }
-                }
-                CheckHealth();
-                break;
-            case 2:
-                while (encounterVitality > 0 && HitPoint > 0)
-                {
-                    if (encounterDexterity > Dexterity + 5)
-                    {
-                        int encounterDamage = 2 * (encounterStrength + encounterDexterity * random.Next(1, 2));
-                        HitPoint -= encounterDamage;
+                            int characterDamage = Dexterity + Intelligence * random.Next(2, 4);
+                            encounterVitality -= characterDamage;
 
-                        int characterDamage = Strength + Dexterity * random.Next(2, 4);
-                        encounterVitality -= characterDamage;
+                            Console.WriteLine($"HP: {HitPoint} / Encounter HP: {encounterVitality}");
+                        }
 
-                        Console.WriteLine($"HP: {HitPoint} / Encounter HP: {encounterVitality}");
-                    }
-                    
-                    else if (Dexterity + 5 > encounterDexterity && encounterDexterity > Dexterity)
-                    {
-                        int encounterDamage = encounterStrength + encounterDexterity * random.Next(1, 3);
-                        HitPoint -= encounterDamage;
+                        else if ((2 * Intelligence + Dexterity) + 5 >
+                                 (2 * encounterIntelligence + encounterDexterity) &&
+                                 (2 * encounterIntelligence + encounterDexterity) > (2 * Intelligence + Dexterity) + 5)
+                        {
+                            int encounterDamage = encounterDexterity + encounterIntelligence * random.Next(1, 3);
+                            HitPoint -= encounterDamage;
 
-                        int characterDamage = Strength + Dexterity * random.Next(2, 5);
-                        encounterVitality -= characterDamage;
-                        
-                        Console.WriteLine($"HP: {HitPoint} / Encounter HP: {encounterVitality}");
-                    }
+                            int characterDamage = Dexterity + Intelligence * random.Next(2, 5);
+                            encounterVitality -= characterDamage;
 
-                    else
-                    {
-                        int encounterDamage = encounterDexterity * random.Next(1, 2);
-                        HitPoint -= encounterDamage;
+                            Console.WriteLine($"HP: {HitPoint} / Encounter HP: {encounterVitality}");
+                        }
 
-                        int characterDamage = 2 * (Strength + Dexterity * random.Next(1, 2));
-                        encounterVitality -= characterDamage;
-                        
-                        Console.WriteLine($"HP: {HitPoint} / Encounter HP: {encounterVitality}");
-                    }
-                }
-                CheckHealth();
-                break;
-            case 3 :
-                while (encounterVitality > 0 && HitPoint > 0)
-                {  
-                    if ((2 * encounterIntelligence + encounterDexterity)  > (2 * Intelligence + Dexterity) + 5)
-                    {
-                        int encounterDamage = 2 * (encounterDexterity + encounterIntelligence * random.Next(1, 2));
-                        HitPoint -= encounterDamage;
+                        else
+                        {
+                            int encounterDamage = encounterIntelligence * random.Next(1, 2);
+                            HitPoint -= encounterDamage;
 
-                        int characterDamage = Dexterity + Intelligence * random.Next(2, 4);
-                        encounterVitality -= characterDamage;
+                            int characterDamage = 2 * (Dexterity + Intelligence * random.Next(1, 2));
+                            encounterVitality -= characterDamage;
 
-                        Console.WriteLine($"HP: {HitPoint} / Encounter HP: {encounterVitality}");
-                    }
-                    
-                    else if ((2 * Intelligence + Dexterity) + 5 > (2 * encounterIntelligence + encounterDexterity) && (2 * encounterIntelligence + encounterDexterity) > (2 * Intelligence + Dexterity) + 5)
-                    {
-                        int encounterDamage = encounterDexterity + encounterIntelligence * random.Next(1, 3);
-                        HitPoint -= encounterDamage;
-
-                        int characterDamage = Dexterity + Intelligence * random.Next(2, 5);
-                        encounterVitality -= characterDamage;
-                        
-                        Console.WriteLine($"HP: {HitPoint} / Encounter HP: {encounterVitality}");
+                            Console.WriteLine($"HP: {HitPoint} / Encounter HP: {encounterVitality}");
+                        }
                     }
 
-                    else
-                    {
-                        int encounterDamage = encounterIntelligence * random.Next(1, 2);
-                        HitPoint -= encounterDamage;
-
-                        int characterDamage = 2 * (Dexterity + Intelligence * random.Next(1, 2));
-                        encounterVitality -= characterDamage;
-                        
-                        Console.WriteLine($"HP: {HitPoint} / Encounter HP: {encounterVitality}");
-                    }
-                }
-                CheckHealth();
-                break;
+                    CheckHealth();
+                    menuCheck = false;
+                    break;
+            }
         }
-        
+
         CheckHealth();
 
         Console.WriteLine("+++++Encounter killed!+++++");
         
         Console.WriteLine("Current character stats: ");
         Console.WriteLine($"Strength: {Strength}, Dexterity: {Dexterity}, Intelligence: {Intelligence}");
-
-        return HitPoint;
+        
     }
 
     public void SetTraining()
     {
-        Console.WriteLine($"Current HP: {HitPoint}");
-        Console.WriteLine("+++Select Training: +++");
-        Console.WriteLine("Press '1' for Full Body Workout");
-        Console.WriteLine("Press '2' for Technical Exercises");
-        Console.WriteLine("Press '3' for Reading");
-        Console.WriteLine("+++++++++++++++++++++++");
-        int trainingId = Convert.ToInt32(Console.ReadLine());
-
-        switch (trainingId)
+        bool menuCheck = true;
+        while (menuCheck)
         {
-            case 1 :
-                Strength += 3;
-                Console.WriteLine($"Strength: {Strength}");
-                break;
-            case 2 :
-                Dexterity += 3;
-                Console.WriteLine($"Dexterity: {Dexterity}");
-                break;
-            case 3 :
-                Intelligence += 3;
-                Console.WriteLine($"Intelligence: {Intelligence}");
-                break;
-        }
+            Console.WriteLine($"Current HP: {HitPoint}");
+            Console.WriteLine("+++Select Training: +++");
+            Console.WriteLine("Press '1' for Full Body Workout");
+            Console.WriteLine("Press '2' for Technical Exercises");
+            Console.WriteLine("Press '3' for Reading");
+            Console.WriteLine("+++++++++++++++++++++++");
+            int trainingId = Convert.ToInt32(Console.ReadLine());
 
+            switch (trainingId)
+            {
+                case 1 :
+                    Strength += 3;
+                    Console.WriteLine($"Strength: {Strength}");
+                    menuCheck = false;
+                    break;
+                case 2 :
+                    Dexterity += 3;
+                    Console.WriteLine($"Dexterity: {Dexterity}");
+                    menuCheck = false;
+                    break;
+                case 3 :
+                    Intelligence += 3;
+                    Console.WriteLine($"Intelligence: {Intelligence}");
+                    menuCheck = false;
+                    break;
+            }
+        }
+        
         Console.WriteLine("Current character stats: ");
         Console.WriteLine($"Strength: {Strength}, Dexterity: {Dexterity}, Intelligence: {Intelligence}");
     }
@@ -260,19 +285,25 @@ public class CharacterActions : Character
             return;
         }
 
-        Console.Write("Your gold is inadequate! Do you want to work at Inn to gain enough money to stay one night? (y/n)");
-        string work = Console.ReadLine();
-
-        switch (work)
+        bool menuCheck = true;
+        while (menuCheck)
         {
-            case "y" :
-                SetWork();
-                Console.WriteLine($"Strength: {Strength}");
-                break;
-            case "n" :
-                Console.WriteLine("Then let's do some training to spend some time.");
-                SetTraining();
-                break;
+            Console.Write("Your gold is inadequate! Do you want to work at Inn to gain enough money to stay one night? (y/n)");
+            string work = Console.ReadLine();
+
+            switch (work)
+            {
+                case "y" :
+                    SetWork();
+                    Console.WriteLine($"Strength: {Strength}");
+                    menuCheck = false;
+                    break;
+                case "n" :
+                    Console.WriteLine("Then let's do some training to spend some time.");
+                    SetTraining();
+                    menuCheck = false;
+                    break;
+            }
         }
     }
 
@@ -291,97 +322,106 @@ public class CharacterActions : Character
         SetTraining();
     }
 
-    public void SetPurchase()
+    public bool SetPurchase()
     {
-        Console.WriteLine("+++++ Purchase an Item +++++");
-        Console.WriteLine("Select an item to purchase: ");
-        Console.WriteLine("Press '1' for a new Armor");
-        Console.WriteLine($"Price: {_armorPrice}");
-        Console.WriteLine("Press '2' for a new Sword");
-        Console.WriteLine($"Price: {_swordPrice}");
-        Console.WriteLine("Press '3' fo a new Bow");
-        Console.WriteLine($"Price: {_bowPrice}");
-        Console.WriteLine("Press '4' for a new Book");
-        Console.WriteLine($"Price: {_bookPrice}");
-        Console.WriteLine("++++++++++++++++++++++++++++");
-        Console.WriteLine("A fruitful discount will be added if you are intelligent enough!!");
-        Console.WriteLine("++++++++++++++++++++++++++++");
-        int itemId = Convert.ToInt32(Console.ReadLine());
-
-        if (Intelligence > 10 && Intelligence <= 15)
+        while (true)
         {
-            _armorPrice *= 0.9;
-            _swordPrice *= 0.9;
-            _bowPrice *= 0.9;
-            _bookPrice *= 0.9;
-        }
-        
-        else if (Intelligence > 15)
-        {
-            _armorPrice *= 0.8;
-            _swordPrice *= 0.8;
-            _bowPrice *= 0.8;
-            _bookPrice *= 0.8;
-        }
+            Console.WriteLine("+++++ Purchase an Item +++++");
+            Console.WriteLine("Press '0' for exit");
+            Console.WriteLine("Select an item to purchase: ");
+            Console.WriteLine("Press '1' for a new Armor");
+            Console.WriteLine($"Price: {_armorPrice}");
+            Console.WriteLine("Press '2' for a new Sword");
+            Console.WriteLine($"Price: {_swordPrice}");
+            Console.WriteLine("Press '3' fo a new Bow");
+            Console.WriteLine($"Price: {_bowPrice}");
+            Console.WriteLine("Press '4' for a new Book");
+            Console.WriteLine($"Price: {_bookPrice}");
+            Console.WriteLine("++++++++++++++++++++++++++++");
+            Console.WriteLine("A fruitful discount was added if you are intelligent enough!!");
+            Console.WriteLine("++++++++++++++++++++++++++++");
+            int itemId = Convert.ToInt32(Console.ReadLine());
 
-        switch (itemId)
-        {
-            case 1:
-                if (Gold >= _armorPrice)
-                {
-                    Gold -= _armorPrice;
-                    HitPoint += 10;
-                    Console.WriteLine($"New armor! HitPoint: {HitPoint}");
-                }
+            if (itemId == 0)
+            {
+                return false;
+            }
 
-                else
-                {
-                    Console.WriteLine("Insufficient gold!");
-                }
-               
-                break;
-            case 2:
-                if (Gold >= _swordPrice)
-                {
-                    Gold -= _swordPrice;
-                    Strength += 5;
-                    Console.WriteLine($"New sword! Strength: {Strength}");
-                }
+            if (Intelligence > 10 && Intelligence <= 15)
+            {
+                _armorPrice *= 0.9;
+                _swordPrice *= 0.9;
+                _bowPrice *= 0.9;
+                _bookPrice *= 0.9;
+            }
 
-                else
-                {
-                    Console.WriteLine("Insufficient gold!");
-                }
-               
-                break;
-            case 3 :
-                if (Gold >= _bowPrice)
-                {
-                    Gold -= _bowPrice;
-                    Dexterity += 5;
-                    Console.WriteLine($"New bow! Dexterity: {Dexterity}");
-                }
-                
-                else
-                {
-                    Console.WriteLine("Insufficient gold!");
-                }
-               
-                break;
-            case 4:
-                if (Gold >= _bookPrice)
-                {
-                    Gold -= _bookPrice;
-                    Intelligence += 5;
-                    Console.WriteLine($"New book! Intelligence: {Intelligence}");
-                }
+            else if (Intelligence > 15)
+            {
+                _armorPrice *= 0.8;
+                _swordPrice *= 0.8;
+                _bowPrice *= 0.8;
+                _bookPrice *= 0.8;
+            }
 
-                else
-                {
-                    Console.WriteLine("Insufficient gold!");
-                }
+            switch (itemId)
+            {
+                case 1:
+                    if (Gold >= _armorPrice)
+                    {
+                        Gold -= _armorPrice;
+                        HitPoint += 10;
+                        Console.WriteLine($"New armor! HitPoint: {HitPoint}");
+                    }
 
-                break;
+                    else
+                    {
+                        Console.WriteLine("Insufficient gold!");
+                    }
+
+                    break;
+                case 2:
+                    if (Gold >= _swordPrice)
+                    {
+                        Gold -= _swordPrice;
+                        Strength += 5;
+                        Console.WriteLine($"New sword! Strength: {Strength}");
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Insufficient gold!");
+                    }
+
+                    break;
+                case 3:
+                    if (Gold >= _bowPrice)
+                    {
+                        Gold -= _bowPrice;
+                        Dexterity += 5;
+                        Console.WriteLine($"New bow! Dexterity: {Dexterity}");
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Insufficient gold!");
+                    }
+
+                    break;
+                case 4:
+                    if (Gold >= _bookPrice)
+                    {
+                        Gold -= _bookPrice;
+                        Intelligence += 5;
+                        Console.WriteLine($"New book! Intelligence: {Intelligence}");
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Insufficient gold!");
+                    }
+
+                    break;
+            }
         }
     }
 }

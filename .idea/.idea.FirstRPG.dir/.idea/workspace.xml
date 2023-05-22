@@ -9,9 +9,15 @@
   <component name="ChangeListManager">
     <list default="true" id="a8bba319-d848-4fea-83ba-019e53c8252e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FirstRPG.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FirstRPG.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Character.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CharacterActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CharacterActions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Events.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Events.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Input.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Input.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/FirstRPG.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/FirstRPG.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/FirstRPG.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/FirstRPG.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/FirstRPG.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/FirstRPG.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/FirstRPG.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/FirstRPG.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/ref/FirstRPG.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/ref/FirstRPG.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/refint/FirstRPG.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/refint/FirstRPG.dll" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +98,7 @@
       <workItem from="1684420511420" duration="90000" />
       <workItem from="1684420607951" duration="114000" />
       <workItem from="1684741099083" duration="2949000" />
-      <workItem from="1684753188450" duration="2695000" />
+      <workItem from="1684753188450" duration="6762000" />
     </task>
     <task id="LOCAL-00001" summary="revisions">
       <created>1684419390741</created>
