@@ -1,0 +1,39 @@
+<changelist name="Uncommitted_changes_before_rebase_[Changes]" date="1684419729864" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/.idea.FirstRPG.dir/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before rebase [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="obj/Debug/net7.0/ref/FirstRPG.dll" />
+    <option name="AFTER_PATH" value="obj/Debug/net7.0/ref/FirstRPG.dll" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.FirstRPG.dir/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/FirstRPG.dll" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="obj/Debug/net7.0/FirstRPG.pdb" />
+    <option name="AFTER_PATH" value="obj/Debug/net7.0/FirstRPG.pdb" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.FirstRPG.dir/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/FirstRPG.pdb" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="obj/Debug/net7.0/FirstRPG.dll" />
+    <option name="AFTER_PATH" value="obj/Debug/net7.0/FirstRPG.dll" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.FirstRPG.dir/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/FirstRPG1.dll" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="obj/Debug/net7.0/refint/FirstRPG.dll" />
+    <option name="AFTER_PATH" value="obj/Debug/net7.0/refint/FirstRPG.dll" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.FirstRPG.dir/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/FirstRPG2.dll" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="bin/Debug/net7.0/FirstRPG.pdb" />
+    <option name="AFTER_PATH" value="bin/Debug/net7.0/FirstRPG.pdb" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.FirstRPG.dir/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/FirstRPG1.pdb" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="obj/Debug/net7.0/FirstRPG.genruntimeconfig.cache" />
+    <option name="AFTER_PATH" value="obj/Debug/net7.0/FirstRPG.genruntimeconfig.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.FirstRPG.dir/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/FirstRPG.genruntimeconfig.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="bin/Debug/net7.0/FirstRPG.dll" />
+    <option name="AFTER_PATH" value="bin/Debug/net7.0/FirstRPG.dll" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.FirstRPG.dir/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/FirstRPG3.dll" />
+  </binary>
+</changelist>

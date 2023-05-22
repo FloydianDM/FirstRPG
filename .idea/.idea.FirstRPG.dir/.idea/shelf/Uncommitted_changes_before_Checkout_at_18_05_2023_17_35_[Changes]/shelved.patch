@@ -1,0 +1,15 @@
+Index: obj/rider.project.restore.info
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>16844189510070119
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/obj/rider.project.restore.info b/obj/rider.project.restore.info
+--- a/obj/rider.project.restore.info	(revision 9d4e3f0855ee51f2bec78c72379c6dcec3000bd7)
++++ b/obj/rider.project.restore.info	(date 1684420510996)
+@@ -1,1 +1,1 @@
+-16844189510070119
+\ No newline at end of file
++16844205109897293
+\ No newline at end of file
