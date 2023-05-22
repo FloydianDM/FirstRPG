@@ -7,7 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8bba319-d848-4fea-83ba-019e53c8252e" name="Changes" comment="" />
+    <list default="true" id="a8bba319-d848-4fea-83ba-019e53c8252e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FirstRPG.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FirstRPG.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CharacterActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CharacterActions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +48,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "advanced.settings",
+    "settings.editor.selected.configurable": "CodeLensConfigurable",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -86,7 +91,8 @@
       <workItem from="1684419603037" duration="745000" />
       <workItem from="1684420511420" duration="90000" />
       <workItem from="1684420607951" duration="114000" />
-      <workItem from="1684741099083" duration="1192000" />
+      <workItem from="1684741099083" duration="2949000" />
+      <workItem from="1684753188450" duration="2695000" />
     </task>
     <task id="LOCAL-00001" summary="revisions">
       <created>1684419390741</created>

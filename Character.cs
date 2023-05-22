@@ -3,7 +3,7 @@ namespace FirstRPG;
 public class Character
 {
     protected int HitPoint;
-    protected int Gold;
+    protected double Gold;
     protected string Difficulty;
     private int _charClassStr;
     private int _charClassDex;

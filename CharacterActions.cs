@@ -2,6 +2,11 @@ namespace FirstRPG;
 
 public class CharacterActions : Character
 {
+    private double _armorPrice = 30;
+    private double _swordPrice = 25;
+    private double _bowPrice = 25;
+    private double _bookPrice = 20;
+    
     public CharacterActions()
     {
         
@@ -284,5 +289,99 @@ public class CharacterActions : Character
 
         Console.WriteLine("Do not have any strength to do some work, let's train then.");
         SetTraining();
+    }
+
+    public void SetPurchase()
+    {
+        Console.WriteLine("+++++ Purchase an Item +++++");
+        Console.WriteLine("Select an item to purchase: ");
+        Console.WriteLine("Press '1' for a new Armor");
+        Console.WriteLine($"Price: {_armorPrice}");
+        Console.WriteLine("Press '2' for a new Sword");
+        Console.WriteLine($"Price: {_swordPrice}");
+        Console.WriteLine("Press '3' fo a new Bow");
+        Console.WriteLine($"Price: {_bowPrice}");
+        Console.WriteLine("Press '4' for a new Book");
+        Console.WriteLine($"Price: {_bookPrice}");
+        Console.WriteLine("++++++++++++++++++++++++++++");
+        Console.WriteLine("A fruitful discount will be added if you are intelligent enough!!");
+        Console.WriteLine("++++++++++++++++++++++++++++");
+        int itemId = Convert.ToInt32(Console.ReadLine());
+
+        if (Intelligence > 10 && Intelligence <= 15)
+        {
+            _armorPrice *= 0.9;
+            _swordPrice *= 0.9;
+            _bowPrice *= 0.9;
+            _bookPrice *= 0.9;
+        }
+        
+        else if (Intelligence > 15)
+        {
+            _armorPrice *= 0.8;
+            _swordPrice *= 0.8;
+            _bowPrice *= 0.8;
+            _bookPrice *= 0.8;
+        }
+
+        switch (itemId)
+        {
+            case 1:
+                if (Gold >= _armorPrice)
+                {
+                    Gold -= _armorPrice;
+                    HitPoint += 10;
+                    Console.WriteLine($"New armor! HitPoint: {HitPoint}");
+                }
+
+                else
+                {
+                    Console.WriteLine("Insufficient gold!");
+                }
+               
+                break;
+            case 2:
+                if (Gold >= _swordPrice)
+                {
+                    Gold -= _swordPrice;
+                    Strength += 5;
+                    Console.WriteLine($"New sword! Strength: {Strength}");
+                }
+
+                else
+                {
+                    Console.WriteLine("Insufficient gold!");
+                }
+               
+                break;
+            case 3 :
+                if (Gold >= _bowPrice)
+                {
+                    Gold -= _bowPrice;
+                    Dexterity += 5;
+                    Console.WriteLine($"New bow! Dexterity: {Dexterity}");
+                }
+                
+                else
+                {
+                    Console.WriteLine("Insufficient gold!");
+                }
+               
+                break;
+            case 4:
+                if (Gold >= _bookPrice)
+                {
+                    Gold -= _bookPrice;
+                    Intelligence += 5;
+                    Console.WriteLine($"New book! Intelligence: {Intelligence}");
+                }
+
+                else
+                {
+                    Console.WriteLine("Insufficient gold!");
+                }
+
+                break;
+        }
     }
 }
